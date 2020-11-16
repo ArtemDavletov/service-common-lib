@@ -15,7 +15,7 @@ public class JwtTokenUtil implements Serializable {
 
     private static final long serialVersionUID = -2550185165626007488L;
 
-    @Value("jwtsecret")
+    @Value("${jwt.secret}")
     private String secret;
 
     public Date getExpirationDateFromToken(String token) {
@@ -26,8 +26,17 @@ public class JwtTokenUtil implements Serializable {
         final Claims claims = getAllClaimsFromToken(token);
         return claimsResolver.apply(claims);
     }
+
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+    }
+
+    Long getIdFromToken(String token) {
+        return (Long) Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().get("id");
+    }
+
+    String getRoleFromToken(String token) {
+        return (String) Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().get("role");
     }
 
     private Boolean isTokenExpired(String token) {
