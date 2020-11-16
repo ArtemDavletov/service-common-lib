@@ -20,6 +20,7 @@
         <simpleclient.version>0.8.1</simpleclient.version>
         <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
+        <jjwt.version>0.9.1</jjwt.version>
     </properties>
 
     <dependencies>
@@ -67,6 +68,25 @@
             <groupId>io.prometheus</groupId>
             <artifactId>simpleclient_httpserver</artifactId>
             <version>${simpleclient.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.3.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.3.3.RELEASE</version>
         </dependency>
     </dependencies>
 
